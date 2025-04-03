@@ -20,10 +20,10 @@ def build_ui(page: ft.Page):
     transactions_table = ft.DataTable(
         columns=[
             ft.DataColumn(ft.Text("ID")),
-            ft.DataColumn(ft.Text("Сумма")),
+            ft.DataColumn(ft.Text("Дата")),
             ft.DataColumn(ft.Text("Категория")),
             ft.DataColumn(ft.Text("Тип")),
-            ft.DataColumn(ft.Text("Дата")),
+            ft.DataColumn(ft.Text("Сумма")),
             ft.DataColumn(ft.Text("Действие")),
         ],
         rows=[]
@@ -37,10 +37,10 @@ def build_ui(page: ft.Page):
             transactions_table.rows.append(
                 ft.DataRow(cells=[
                     ft.DataCell(ft.Text(str(trans_id))),
-                    ft.DataCell(ft.Text(str(amount))),
+                    ft.DataCell(ft.Text(str(date))),
                     ft.DataCell(ft.Text(category)),
                     ft.DataCell(ft.Text(type_)),
-                    ft.DataCell(ft.Text(date)),
+                    ft.DataCell(ft.Text(amount)),
                     ft.DataCell(ft.ElevatedButton("Удалить", on_click=lambda e, t_id=trans_id: delete_transaction(int(t_id)))),
                 ])
             )
